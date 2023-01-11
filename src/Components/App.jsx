@@ -35,14 +35,11 @@ function App() {
     }
   ])
 
-  const [backgroundWallpaper,setBackgroundWallpaper] = useState({
-    backgroundImage: "url("+"/default-wallpaper.jpg"+")",
-    backgroundSize:'cover',
-  })
-
   return (
-    <div className="App" style={backgroundWallpaper}>
+    <div className="App">
+      <img className='mainWallpaper' src="defaultWallpaper.jpg" alt="" />
       <Taskbar totalApps={totalApps} />
+
     </div>
   )
 }
