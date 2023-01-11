@@ -57,3 +57,6 @@ A fun practice project to clone the Windows 10 interface using React.js.
 
 **If you're interested in contributing to this project, please open an issue or create a pull request.**
 
+## License
+
+This project is licensed under the [MIT License](https://github.com/Chetan-KK/Windows-10-Clone/blob/main/LICENCE).
