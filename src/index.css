@@ -1,0 +1,34 @@
+:root {
+  --primary-color: rgb(238, 238, 238);
+  --primary-color-hover: rgb(245, 245, 245);
+  --primary-opp:rgb(20, 20, 20);
+  --main-color:rgb(0,120,215) ;
+  --secondary-color:rgb(226, 226, 226);
+  --scrollbar-thumb-color:rgb(58, 58, 58);
+  --fast-transition:150ms;
+  --slow-transition:250ms;
+
+--ff: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+*,
+*::before,
+*::after {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+/* box-shadow: 0 0 0 1px red; */
+
+}
+*:not(i){
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+*::selection{
+  background-color: transparent;
+}
+span{
+  cursor: default;
+}
+.flex{
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,69 @@
+.Taskbar{
+    width: 100vw;
+    height: 40px;
+    background-color: var(--primary-color);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    justify-content: space-between;
+}
+.left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.left .icon{
+    width: 50px;
+    height: 100%;
+    justify-content: center;
+    position: relative;
+}
+.active::before{
+    content: '';
+    position: absolute;
+    background-color: var(--main-color);
+    height: 2px;
+    bottom: 0;
+    width: 80%;
+    margin-left: 10%;
+    left: 0;
+    transition: var(--fast-transition);
+}
+.active:hover::before{
+    width: 100%;
+    margin-left: 0%;
+}
+.icon:hover{
+    background-color: var(--primary-color-hover);
+}
+.icon img{
+    margin-bottom: 1px;
+    height: 24px;
+    width: 24px;
+}
+.startButton{
+    font-size: 1.3rem;
+}
+.startButton:hover{
+    color: var(--main-color);
+}
+.Taskbar .right{
+    height: 100%;
+    position: relative;
+}
+.Taskbar .right > *{
+    padding: 0 5px;
+    height: 100%;
+    font-size: .8rem;
+}
+.Taskbar .right > *:hover{
+    background-color: var(--primary-color-hover);
+}
+.Taskbar .right .show-desktop{
+    border: 1px solid var(--primary-opp);
+    padding: 2px;
+}
+.Taskbar .right .date{
+    flex-direction: column;
+}
