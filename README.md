@@ -56,8 +56,4 @@ A fun practice project to clone the Windows 10 interface using React.js.
 ## Contributing
 
 **If you're interested in contributing to this project, please open an issue or create a pull request.**
-<<<<<<< HEAD
 
-curruntly accepting your contributed code.
-=======
->>>>>>> f05a757a676a7242a4b3ad4b9d81ce2ff5e353ca
