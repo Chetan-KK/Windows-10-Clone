@@ -1,0 +1,29 @@
+.Settings{
+    position: absolute;
+    height: 0;
+    width: 200px;
+    background-color: var(--secondary-color);
+    left: 0;
+    bottom: 10%;
+    overflow: hidden;
+    border: none;
+    transition: var(--fast-transition);
+}
+.SettingsMenuactive{
+    border: 1px solid var(--primary-opp);
+    height: 160px;
+    box-shadow: 0 0 10px -5px var(--primary-opp);
+    margin-bottom: 50px;
+}
+.Settings .SettingsButtons{
+    width: 100%;
+    padding: 5px 5px 5px 10px;
+    margin: 5px 0;
+}
+.Settings .SettingsButtons:hover{
+    background-color: var(--primary-color-hover);
+}
+.Settings .SettingsButtons span{
+margin-left: 10px;
+font-size: .8rem;
+}
