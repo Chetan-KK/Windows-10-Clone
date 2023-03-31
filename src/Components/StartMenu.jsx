@@ -25,12 +25,10 @@ export default function StartMenu(props) {
 
     function handlePowerOffButton() {
         setQuitMenu(!QuitMenu)
-        console.log(QuitMenu);
     }
 
     function handleSettingsButton() {
         setSettingsMenu(!SettingsMenu)
-        console.log(SettingsMenu);
     }
 
 

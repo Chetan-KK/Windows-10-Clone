@@ -5,9 +5,12 @@
     background-color: var(--secondary-color);
     left: 0;
     bottom: 10%;
-    overflow: hidden;
+    /* overflow: hidden; */
     border: none;
     transition: var(--fast-transition);
+}
+.SettingsMenu{
+    visibility: hidden;
 }
 .SettingsMenuactive{
     border: 1px solid var(--primary-opp);
