@@ -5,7 +5,7 @@
 }
 
 .DisplayMenu{
-    visibility: hidden;
+    display: none;
 }
 
 .Display{

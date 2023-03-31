@@ -10,7 +10,7 @@
     transition: var(--fast-transition);
 }
 .SettingsMenu{
-    visibility: hidden;
+    display: none;
 }
 .SettingsMenuactive{
     border: 1px solid var(--primary-opp);
