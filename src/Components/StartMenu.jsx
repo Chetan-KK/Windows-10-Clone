@@ -1,10 +1,10 @@
-import React, { useState } from "react"
+import React, { useContext, useEffect, useRef, useState } from "react"
 import './css/StartMenu.css'
 import Quit from "./Quit";
 import Settings from "./Settings";
+import { AppContext } from "../context/AppContext";
 
 export default function StartMenu(props) {
-
     const [apps, setApps] = useState([
         {
             name: 'Chrome',
@@ -22,6 +22,22 @@ export default function StartMenu(props) {
 
     const [QuitMenu, setQuitMenu] = useState(false)
     const [SettingsMenu, setSettingsMenu] = useState(false)
+    const { setIfBlurByStartMenuPress, ifBlurByStartMenuPress, startMenu, setStartMenu, isStartButtonActive } = useContext(AppContext)
+
+    /*To get the reference to the main Div of StartMenu so that 
+    start menu can be closed if clicked anywhere outside by providing focus in useEffect*/
+    const startMenuDiv = useRef()
+
+    useEffect(() => {
+        console.log("startMenu focused")
+        console.log("StartMenu in useEffect : ", startMenu)
+
+        if (isStartButtonActive) {
+            // console.log("focus on")
+            startMenuDiv.current.focus()
+        }
+
+    }, [isStartButtonActive])
 
     function handlePowerOffButton() {
         setQuitMenu(!QuitMenu)
@@ -36,8 +52,26 @@ export default function StartMenu(props) {
         setQuitMenu(!QuitMenu)
     }
 
+    function test() {
+        console.log("onBlur triggered")
+        console.log("StartMenu in onBlur:", startMenu)
+        console.log("isStartButtonActive : ", isStartButtonActive)
+        console.log("ifBlurByStartMenuPress: ", ifBlurByStartMenuPress)
+        if (!ifBlurByStartMenuPress) {
+            if (isStartButtonActive) {
+                console.log("changing StartMenu")
+                setStartMenu(prev => !prev)
+                // setIsStartButtonActive(false)
+                // setIfBlurByStartMenuPress(false)
+            }
+        }
+
+
+    }
+
     return (
-        <div className={"StartMenu StartMenu" + props.active}>
+
+        <div data-testid="startMenuDiv" ref={startMenuDiv} onBlur={test} tabIndex="0" className={"StartMenu StartMenu" + props.active}>
             <div className="flex options">
                 <div className="opt"><i className="fa fa-bars"></i><span><b>Start</b></span></div>
                 <div className="bottom">
@@ -62,7 +96,7 @@ export default function StartMenu(props) {
             <div className="apps">
 
             </div>
-
         </div>
+
     )
 }
