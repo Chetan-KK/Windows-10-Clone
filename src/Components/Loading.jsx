@@ -25,7 +25,7 @@ function Loading({ message }) {
                     fontSize: 22
                 }}
             >
-                <p>please wait</p>
+                <p>{message}</p>
             </div>
         </div>
     )

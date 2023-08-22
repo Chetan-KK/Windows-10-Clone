@@ -29,8 +29,8 @@ export default function StartMenu(props) {
     const startMenuDiv = useRef()
 
     useEffect(() => {
-        console.log("startMenu focused")
-        console.log("StartMenu in useEffect : ", startMenu)
+        // console.log("startMenu focused")
+        // console.log("StartMenu in useEffect : ", startMenu)
 
         if (isStartButtonActive) {
             // console.log("focus on")
@@ -38,6 +38,7 @@ export default function StartMenu(props) {
         }
 
     }, [isStartButtonActive])
+
 
     function handlePowerOffButton() {
         setQuitMenu(!QuitMenu)
@@ -52,14 +53,19 @@ export default function StartMenu(props) {
         setQuitMenu(!QuitMenu)
     }
 
-    function test() {
-        console.log("onBlur triggered")
-        console.log("StartMenu in onBlur:", startMenu)
-        console.log("isStartButtonActive : ", isStartButtonActive)
-        console.log("ifBlurByStartMenuPress: ", ifBlurByStartMenuPress)
+    /**Based on the implementations the OnBlur function gets called before the onClick of Start
+     * Button and even if you click the start button the onBlur still gets called, so have dealt 
+     * with some of the logics for displaying the start menu on clicks here, and the rest in the 
+     * useeffect of App.jsx and StartMenu.jsx Taskbar.jsx
+    */
+    function handleBlur() {
+        // console.log("onBlur triggered")
+        // console.log("StartMenu in onBlur:", startMenu)
+        // console.log("isStartButtonActive : ", isStartButtonActive)
+        // console.log("ifBlurByStartMenuPress: ", ifBlurByStartMenuPress)
         if (!ifBlurByStartMenuPress) {
             if (isStartButtonActive) {
-                console.log("changing StartMenu")
+                // console.log("changing StartMenu")
                 setStartMenu(prev => !prev)
                 // setIsStartButtonActive(false)
                 // setIfBlurByStartMenuPress(false)
@@ -71,7 +77,7 @@ export default function StartMenu(props) {
 
     return (
 
-        <div data-testid="startMenuDiv" ref={startMenuDiv} onBlur={test} tabIndex="0" className={"StartMenu StartMenu" + props.active}>
+        <div data-testid="startMenuDiv" ref={startMenuDiv} onBlur={handleBlur} tabIndex="0" className={"StartMenu StartMenu" + props.active}>
             <div className="flex options">
                 <div className="opt"><i className="fa fa-bars"></i><span><b>Start</b></span></div>
                 <div className="bottom">

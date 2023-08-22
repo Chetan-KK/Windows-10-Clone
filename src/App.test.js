@@ -2,6 +2,7 @@ import React from "react";
 import { screen, render, waitFor } from "@testing-library/react";
 import App from "./Components/App";
 import userEvent from "@testing-library/user-event";
+import Quit from "./Components/Quit";
 
 
 test("Initial test", () => {
@@ -58,3 +59,5 @@ test("Start button closing and losing focus when other areas are clicke", async 
 
     }, { timeout: 5000 })
 })
+
+

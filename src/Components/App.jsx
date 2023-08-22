@@ -3,6 +3,8 @@ import './css/App.css'
 import Taskbar from './Taskbar'
 import Loading from './Loading';
 import { AppContext } from '../context/AppContext';
+import SleepScreen from './Sceens/SleepScreen';
+import RestartScreen from './Sceens/RestartScreen';
 
 // import defaultWallpaper from './assets/default-wallpaper.jpg'
 
@@ -40,16 +42,20 @@ function App() {
   const [startMenu, setStartMenu] = useState(false)
   const [isStartButtonActive, setIsStartButtonActive] = useState(false)
   const [ifBlurByStartMenuPress, setIfBlurByStartMenuPress] = useState(false)
+  const [showApp, setShowApp] = useState(false)
+  const [showSleepScreen, setShowSleepScreen] = useState(false)
+  const [ShowRestartingScreen, setShowRestartingScreen] = useState(false)
 
   useEffect(() => {
     setTimeout(() => {
       setshowLoadingScreen(false)
+      setShowApp(true)
     }, 2500);
   }, [])
 
 
   function handleStartMenu() {
-    console.log("Clicked Furrukh")
+    // console.log("Clicked Furrukh")
     // setStartMenu(prevState => !prevState)
     changeStartMenuStatus()
   }
@@ -62,7 +68,7 @@ function App() {
 
 
   function changeStartMenuStatus() {
-    console.log("StartMenu in App.js : ", startMenu, "isStartButton : ", isStartButtonActive)
+    // console.log("StartMenu in App.js : ", startMenu, "isStartButton : ", isStartButtonActive)
     if (startMenu === isStartButtonActive) {
       setStartMenu(prevState => !prevState)
       setIsStartButtonActive(prev => !prev)
@@ -78,7 +84,7 @@ function App() {
     // else if (startMenu === false && isStartButtonActive === true) {
     //   setIsStartButtonActive(false)
     // }
-    console.log("After CHange : StartMenu in App.js : ", startMenu, "isStartButton : ", isStartButtonActive)
+    // console.log("After CHange : StartMenu in App.js : ", startMenu, "isStartButton : ", isStartButtonActive)
   }
 
   return (
@@ -90,6 +96,9 @@ function App() {
       setIsStartButtonActive,
       ifBlurByStartMenuPress,
       setIfBlurByStartMenuPress,
+      setShowSleepScreen,
+      setShowApp,
+      setShowRestartingScreen,
     }}
     >
       {showLoadingScreen && (
@@ -97,13 +106,29 @@ function App() {
           <Loading message="please wait" />
         </div>)
       }
-      {!showLoadingScreen && (
+      {showApp && (
         <div className="App">
           <img className='mainWallpaper' src="defaultWallpaper.jpg" alt="windowsBackGroundImage" />
           <Taskbar totalApps={totalApps} />
 
         </div>
       )}
+
+      {
+        showSleepScreen && (
+          <>
+            <SleepScreen />
+          </>
+        )
+      }
+
+      {/* restarting Screen */}
+      {
+        ShowRestartingScreen && (
+          <RestartScreen />
+        )
+      }
+
 
     </AppContext.Provider>
   )
