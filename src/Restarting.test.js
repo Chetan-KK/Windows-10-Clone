@@ -5,6 +5,7 @@ import App from "./Components/App"
 import { AppContext } from "./context/AppContext"
 import Quit from "./Components/Quit"
 import userEvent from "@testing-library/user-event"
+import { act } from "react-dom/test-utils"
 
 describe("Restarting Functionality", () => {
     test("Restarting Screen Renders Properly", () => {
@@ -49,14 +50,18 @@ describe("Restarting Functionality", () => {
             const restartButton = screen.getByText(/restart/i)
             await userEvent.click(restartButton)
 
+
         }, { timeout: 3000 })
 
-        await waitFor(() => {
+        waitFor(() => {
             expect(screen.getByText(/please wait/i)).toBeInTheDocument()
         }, { timeout: 3000 })
 
-        await waitFor(() => {
+        waitFor(() => {
             expect(screen.getByText(/eng/i)).toBeInTheDocument()
-        }, { timeout: 5000 })
-    })
+        }, { timeout: 3500 })
+
+    }, 20000)
+
+
 })

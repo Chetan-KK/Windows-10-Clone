@@ -29,9 +29,6 @@ export default function StartMenu(props) {
     const startMenuDiv = useRef()
 
     useEffect(() => {
-        // console.log("startMenu focused")
-        // console.log("StartMenu in useEffect : ", startMenu)
-
         if (isStartButtonActive) {
             // console.log("focus on")
             startMenuDiv.current.focus()
@@ -59,20 +56,11 @@ export default function StartMenu(props) {
      * useeffect of App.jsx and StartMenu.jsx Taskbar.jsx
     */
     function handleBlur() {
-        // console.log("onBlur triggered")
-        // console.log("StartMenu in onBlur:", startMenu)
-        // console.log("isStartButtonActive : ", isStartButtonActive)
-        // console.log("ifBlurByStartMenuPress: ", ifBlurByStartMenuPress)
         if (!ifBlurByStartMenuPress) {
             if (isStartButtonActive) {
-                // console.log("changing StartMenu")
                 setStartMenu(prev => !prev)
-                // setIsStartButtonActive(false)
-                // setIfBlurByStartMenuPress(false)
             }
         }
-
-
     }
 
     return (

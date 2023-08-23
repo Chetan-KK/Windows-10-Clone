@@ -5,6 +5,8 @@ import Loading from './Loading';
 import { AppContext } from '../context/AppContext';
 import SleepScreen from './Sceens/SleepScreen';
 import RestartScreen from './Sceens/RestartScreen';
+import ShutDown from './Sceens/ShutDown';
+import PowerOnScreen from './Sceens/PowerOnScreen';
 
 // import defaultWallpaper from './assets/default-wallpaper.jpg'
 
@@ -38,27 +40,19 @@ function App() {
       active: "false"
     }
   ])
-  const [showLoadingScreen, setshowLoadingScreen] = useState(true)
+  const [showLoadingScreen, setShowLoadingScreen] = useState(true)
   const [startMenu, setStartMenu] = useState(false)
   const [isStartButtonActive, setIsStartButtonActive] = useState(false)
   const [ifBlurByStartMenuPress, setIfBlurByStartMenuPress] = useState(false)
   const [showApp, setShowApp] = useState(false)
   const [showSleepScreen, setShowSleepScreen] = useState(false)
   const [ShowRestartingScreen, setShowRestartingScreen] = useState(false)
+  const [shutDown, setShutDown] = useState(false)
+  const [powerOnScreen, setPowerOnScreen] = useState(false)
 
   useEffect(() => {
-    setTimeout(() => {
-      setshowLoadingScreen(false)
-      setShowApp(true)
-    }, 2500);
+    initiatePowerOnSequence()
   }, [])
-
-
-  function handleStartMenu() {
-    // console.log("Clicked Furrukh")
-    // setStartMenu(prevState => !prevState)
-    changeStartMenuStatus()
-  }
 
   useEffect(() => {
     if (startMenu === false && isStartButtonActive === true) {
@@ -67,24 +61,26 @@ function App() {
   }, [startMenu, isStartButtonActive])
 
 
+  function initiatePowerOnSequence() {
+    setTimeout(() => {
+      setShowLoadingScreen(false)
+      setShowApp(true)
+    }, 2500);
+  }
+
+
+  function handleStartMenu() {
+    changeStartMenuStatus()
+  }
+
+
+
+  // Check docs on handleBlur in StartMenu.jsx to understand how this with combination of that function works
   function changeStartMenuStatus() {
-    // console.log("StartMenu in App.js : ", startMenu, "isStartButton : ", isStartButtonActive)
     if (startMenu === isStartButtonActive) {
       setStartMenu(prevState => !prevState)
       setIsStartButtonActive(prev => !prev)
     }
-    // else {
-    //   if (startMenu === false) {
-    //     setIsStartButtonActive(false)
-    //   }
-    //   else {
-    //     console.log("ELSE :: StartMenu in Else : ", startMenu, "isStartButton : ", isStartButtonActive)
-    //   }
-    // }
-    // else if (startMenu === false && isStartButtonActive === true) {
-    //   setIsStartButtonActive(false)
-    // }
-    // console.log("After CHange : StartMenu in App.js : ", startMenu, "isStartButton : ", isStartButtonActive)
   }
 
   return (
@@ -99,6 +95,10 @@ function App() {
       setShowSleepScreen,
       setShowApp,
       setShowRestartingScreen,
+      setShowLoadingScreen,
+      setShutDown,
+      setPowerOnScreen,
+      initiatePowerOnSequence,
     }}
     >
       {showLoadingScreen && (
@@ -114,6 +114,7 @@ function App() {
         </div>
       )}
 
+      {/* Sleep Screen */}
       {
         showSleepScreen && (
           <>
@@ -126,6 +127,18 @@ function App() {
       {
         ShowRestartingScreen && (
           <RestartScreen />
+        )
+      }
+
+      {/* Shut Down Screen */}
+      {shutDown && (
+        <ShutDown />
+      )}
+
+      {/* Power On Screen */}
+      {
+        powerOnScreen && (
+          <PowerOnScreen />
         )
       }
 

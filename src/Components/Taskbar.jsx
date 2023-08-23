@@ -10,14 +10,6 @@ export default function Taskbar(props) {
     const date = new Date();
     const { startMenu, ifBlurByStartMenuPress, handleStartMenu, setIfBlurByStartMenuPress } = useContext(AppContext)
 
-    // console.log(props.totalApps[1].running);
-
-    // const [startMenu, setStartMenu] = useState(false)
-
-    // function handleStartMenu() {
-    //     console.log("Clicked Furrukh")
-    //     setStartMenu(!startMenu)
-    // }
     useEffect(() => {
         if (ifBlurByStartMenuPress === true) {
             setIfBlurByStartMenuPress(false)
