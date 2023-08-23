@@ -1,10 +1,16 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { AppContext } from '../../context/AppContext'
 import "../css/sleep.css"
 
 
+
 function SleepScreen() {
     const { setShowApp, setShowSleepScreen } = useContext(AppContext)
+
+    const divRef = useRef()
+    useEffect(() => {
+        document.addEventListener("keydown", handleMouseOrKeyboardAction)
+    }, [])
 
     function handleMouseOrKeyboardAction() {
         setShowApp(prev => !prev)
@@ -12,7 +18,7 @@ function SleepScreen() {
     }
 
     return (
-        <div onKeyDown={handleMouseOrKeyboardAction} onMouseMoveCapture={handleMouseOrKeyboardAction} className="SleepScreen">Sleep Screen</div>
+        <div onMouseMoveCapture={handleMouseOrKeyboardAction} className="SleepScreen">Sleep Screen</div>
     )
 }
 

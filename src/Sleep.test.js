@@ -68,8 +68,8 @@ describe("Sleep functionality", () => {
                 <SleepScreen />
             </AppContext.Provider>
         )
-        const sleepScreen = screen.getByText(/sleep screen/i)
-        fireEvent.keyDown(sleepScreen, { key: "a" })
+        // const sleepScreen = screen.getByText(/sleep screen/i)
+        fireEvent.keyDown(document, { key: "a" })
         expect(setShowApp).toHaveBeenCalledTimes(1)
         expect(setShowSleepScreen).toHaveBeenCalledTimes(1)
     })
