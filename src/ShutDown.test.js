@@ -15,7 +15,7 @@ describe("ShutDown", () => {
                 <ShutDown />
             </AppContext.Provider>
         )
-        expect(screen.getByText(/windows is shutting/i)).toBeInTheDocument()
+        expect(screen.getByText(/windows is shutting down/i)).toBeInTheDocument()
     })
 
     test("Shutdown button is working", async () => {

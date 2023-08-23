@@ -15,7 +15,7 @@ function ShutDown() {
 
     return (
         <div className="ShutDownScreen">
-            <Loading message="Windows is Shutting" />
+            <Loading message="Windows is Shutting Down" />
         </div>
     )
 }
