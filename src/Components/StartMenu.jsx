@@ -59,8 +59,11 @@ export default function StartMenu(props) {
         if (!ifBlurByStartMenuPress) {
             if (isStartButtonActive) {
                 setStartMenu(prev => !prev)
+
             }
         }
+        //close the power tab if it was opened
+        setQuitMenu(false)
     }
 
     return (
