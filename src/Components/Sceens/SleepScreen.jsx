@@ -13,8 +13,8 @@ function SleepScreen() {
     }, [])
 
     function handleMouseOrKeyboardAction() {
-        setShowApp(prev => !prev)
-        setShowSleepScreen(prev => !prev)
+        setShowApp(true)
+        setShowSleepScreen(false)
     }
 
     return (
