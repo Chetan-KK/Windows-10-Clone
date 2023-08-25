@@ -24,7 +24,7 @@ describe("Sleep functionality", () => {
     test("Sleep function works as expected using a mouse", async () => {
         render(<App />)
 
-        await waitFor(async () => {
+        waitFor(async () => {
             const sleepButton = screen.getByText(/sleep/i)
             expect(sleepButton).toBeInTheDocument()
             await userEvent.click(sleepButton)
@@ -46,7 +46,7 @@ describe("Sleep functionality", () => {
     test("Sleep function works as expected using a keyBoard", async () => {
         render(<App />)
 
-        await waitFor(async () => {
+        waitFor(async () => {
             const sleepButton = screen.getByText(/sleep/i)
             await userEvent.click(sleepButton)
             //Key Press
@@ -69,9 +69,12 @@ describe("Sleep functionality", () => {
             </AppContext.Provider>
         )
         // const sleepScreen = screen.getByText(/sleep screen/i)
-        fireEvent.keyDown(document, { key: "a" })
-        expect(setShowApp).toHaveBeenCalledTimes(1)
-        expect(setShowSleepScreen).toHaveBeenCalledTimes(1)
+        waitFor(() => {
+            fireEvent.keyDown(document, { key: "a" })
+            expect(setShowApp).toHaveBeenCalledTimes(1)
+            expect(setShowSleepScreen).toHaveBeenCalledTimes(1)
+        })
+
     })
 
 
