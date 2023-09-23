@@ -9,49 +9,49 @@ A fun practice project to clone the Windows 10 interface using React.js.
 
 ## Features
 
-* Imitates the look and feel of the Windows 10 operating system.
-* Includes some of the common features of Windows 10 such as the taskbar, start menu, and desktop icons.
-* Built using React.js for a smooth and responsive user experience.
-<br/>
+- Imitates the look and feel of the Windows 10 operating system.
+- Includes some of the common features of Windows 10 such as the taskbar, start menu, and desktop icons.
+- Built using React.js for a smooth and responsive user experience.
+  <br/>
 
 ### How to Run
 
 1. Clone the repository to your local machine using <br/>
 
-```git clone https://github.com/Chetan-KK/Windows-10-Clone.git```
+`git clone https://github.com/Chetan-KK/Windows-10-Clone.git`
 
 <br/>
-2. Navigate to the project directory and install the dependencies using 
-<br/>
+
+2. Navigate to the project directory and install the dependencies using
+   <br/>
+
+`npm install`
+
 <br/>
 
-```npm install```
-
-<br/>
 3. Start the development server using
-<br/>
+   <br/>
+
+`npm run dev`
+
 <br/>
 
-```npm run dev```
-
-<br/>
-
-4. Open ```http://localhost:3000``` in your browser to view the project <br/>
+4. Open `http://localhost:3000` in your browser to view the project <br/>
 
 <br/>
 
 ## Tech stack
- 
-* React.js
-* CSS
-* Javascript
+
+- React.js
+- CSS
+- Javascript
 
 ## Future Addons
 
-* Adding ability to launch apps
-* Replicating the Window functionalities like draggable, resizeable, minimize and maximize
-* Adding more functionalities to StartMenu
-* Enhance the look and feel.
+- Adding ability to launch apps
+- Replicating the Window functionalities like draggable, resizeable, minimize and maximize
+- Adding more functionalities to StartMenu
+- Enhance the look and feel.
 
 ## Contributing
 
@@ -60,3 +60,5 @@ A fun practice project to clone the Windows 10 interface using React.js.
 ## License
 
 This project is licensed under the [MIT License](https://github.com/Chetan-KK/Windows-10-Clone/blob/main/LICENCE).
+
+#git-code
