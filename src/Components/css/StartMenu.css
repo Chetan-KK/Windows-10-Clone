@@ -1,4 +1,4 @@
-.StartMenu{
+.StartMenu {
     position: absolute;
     width: 40rem;
     background-color: var(--secondary-color);
@@ -12,11 +12,14 @@
     overflow: hidden;
     box-shadow: 10px -10px 20px -15px var(--primary-opp);
 }
-.StartMenuactive{
+
+.StartMenuactive {
     height: calc(29rem + 5vh);
     padding-top: 5px;
+
 }
-.StartMenu .options{
+
+.StartMenu .options {
     justify-content: space-between;
     flex-direction: column;
     align-items: flex-start;
@@ -24,45 +27,61 @@
     transition: var(--slow-transition);
     overflow: hidden;
 }
-.StartMenu .options:hover{
+
+.StartMenu .options:hover {
     width: 200px;
     box-shadow: 0 0 10px -5px var(--primary-opp);
 }
-.StartMenu .options .opt{
+
+.StartMenu .options .opt {
     padding: 13px 15px;
     position: relative;
     width: 200px;
     font-size: 1.1rem;
 }
-.StartMenu .options .opt:hover{
+
+.StartMenu .options .opt:hover {
     background-color: var(--primary-color-hover);
 }
-.StartMenu .options .opt span{
+
+.StartMenu .options .opt span {
     margin-left: 20px;
     font-size: .8rem;
 }
-.StartMenu .list{
+
+.StartMenu .list {
     flex-direction: column;
     overflow: hidden;
     overflow-y: scroll;
     padding: 5px;
 }
-.StartMenu ::-webkit-scrollbar{
+
+.StartMenu ::-webkit-scrollbar {
     background-color: transparent;
     width: 2px;
 }
-.StartMenu ::-webkit-scrollbar-thumb{
+
+.StartMenu ::-webkit-scrollbar-thumb {
     background-color: var(--scrollbar-thumb-color);
 }
-.StartMenu .list .app{
+
+.StartMenu .list .app {
     width: 100%;
     margin: 5px 5px 3px 5px;
     padding: 5px 10px;
 }
-.StartMenu .list .app:hover{
+
+.StartMenu .list .app:hover {
     background-color: var(--primary-color-hover);
 }
-.StartMenu .list .app img{
+
+.StartMenu .list .app img {
     width: 30px;
     margin-right: 20px;
+}
+
+
+/* addition */
+.StartMenu:focus {
+    outline: none;
 }

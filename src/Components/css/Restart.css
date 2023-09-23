@@ -1,0 +1,9 @@
+.RestartScreen {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+    height: 100vh;
+    justify-content: center;
+    background-color: black;
+}
