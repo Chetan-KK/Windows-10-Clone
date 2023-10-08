@@ -47,7 +47,7 @@ test("Start button closing and losing focus when other areas are clicke", async 
     render(<App />)
     await waitFor(async () => {
         const startButton = screen.getByTestId("startButton")
-        const backgroundImage = screen.getByAltText(/windowsBackGroundImage/i)
+
         const startDiv = screen.getByTestId("startMenuDiv")
 
         await userEvent.click(startButton)
