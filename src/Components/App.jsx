@@ -14,9 +14,6 @@ function constructor() {
   // console.log(document.documentElement.requestFullscreen)
 }
 constructor();
-
-
-
 function App() {
 
   const [totalApps, setTotalApps] = useState([
@@ -49,6 +46,7 @@ function App() {
   const [ShowRestartingScreen, setShowRestartingScreen] = useState(false)
   const [shutDown, setShutDown] = useState(false)
   const [powerOnScreen, setPowerOnScreen] = useState(false)
+  const [wifi, setwifi] = useState(false);
 
   useEffect(() => {
     initiatePowerOnSequence()
@@ -74,6 +72,9 @@ function App() {
   }
 
 
+  function setWifiBow() {
+    setwifi(!wifi)
+}
 
   // Check docs on handleBlur in StartMenu.jsx to understand how this with combination of that function works
   function changeStartMenuStatus() {
@@ -82,6 +83,7 @@ function App() {
       setIsStartButtonActive(prev => !prev)
     }
   }
+
 
   return (
     <AppContext.Provider value={{
@@ -99,6 +101,9 @@ function App() {
       setShutDown,
       setPowerOnScreen,
       initiatePowerOnSequence,
+      setWifiBow,
+      wifi
+
     }}
     >
       {showLoadingScreen && (

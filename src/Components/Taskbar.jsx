@@ -4,18 +4,20 @@ import './css/Taskbar.css'
 import Icon from "./Icon";
 import StartMenu from "./StartMenu";
 import { AppContext } from "../context/AppContext";
+import Wifi from "./Wifi";
 
 export default function Taskbar(props) {
 
     const date = new Date();
-    const { startMenu, ifBlurByStartMenuPress, handleStartMenu, setIfBlurByStartMenuPress } = useContext(AppContext)
+    const {setWifiBow, startMenu, ifBlurByStartMenuPress, handleStartMenu, setIfBlurByStartMenuPress } = useContext(AppContext)
 
     useEffect(() => {
         if (ifBlurByStartMenuPress === true) {
             setIfBlurByStartMenuPress(false)
         }
     }, [ifBlurByStartMenuPress])
-
+    
+    
     return (
         <div className="flex Taskbar">
             <div className="left">
@@ -36,7 +38,10 @@ export default function Taskbar(props) {
                 <div className="icon flex battry">
                     <i className="fa-sharp fa-solid fa-battery-three-quarters"></i>
                 </div>
-                <div className="icon flex network">
+                <div onClick={setWifiBow}  className="icon flex network">
+                    
+                    <Wifi  />
+
                     <i className="fa-solid fa-wifi"></i>
                 </div>
                 <div className="icon flex volume">
