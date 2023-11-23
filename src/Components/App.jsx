@@ -7,6 +7,7 @@ import SleepScreen from './Sceens/SleepScreen';
 import RestartScreen from './Sceens/RestartScreen';
 import ShutDown from './Sceens/ShutDown';
 import PowerOnScreen from './Sceens/PowerOnScreen';
+import MainApp from './Sceens/MainApp';
 
 // import defaultWallpaper from './assets/default-wallpaper.jpg'
 
@@ -18,7 +19,7 @@ constructor();
 
 
 function App() {
-
+  const taskbarHeight = 40
   const [totalApps, setTotalApps] = useState([
     {
       name: "chrome",
@@ -99,6 +100,8 @@ function App() {
       setShutDown,
       setPowerOnScreen,
       initiatePowerOnSequence,
+      totalApps,
+      taskbarHeight
     }}
     >
       {showLoadingScreen && (
@@ -107,12 +110,7 @@ function App() {
         </div>)
       }
       {showApp && (
-        <div className="App">
-          <img className='mainWallpaper' src="defaultWallpaper.jpg" alt="windowsBackGroundImage" />
-          <div><h1>Hello worldasdasasasdasasd</h1></div>
-          <Taskbar totalApps={totalApps} />
-
-        </div>
+        <MainApp />
       )}
 
       {/* Sleep Screen */}

@@ -8,7 +8,7 @@ import { AppContext } from "../context/AppContext";
 export default function Taskbar(props) {
 
     const date = new Date();
-    const { startMenu, ifBlurByStartMenuPress, handleStartMenu, setIfBlurByStartMenuPress } = useContext(AppContext)
+    const { taskbarHeight, startMenu, ifBlurByStartMenuPress, handleStartMenu, setIfBlurByStartMenuPress } = useContext(AppContext)
 
     useEffect(() => {
         if (ifBlurByStartMenuPress === true) {
@@ -17,7 +17,10 @@ export default function Taskbar(props) {
     }, [ifBlurByStartMenuPress])
 
     return (
-        <div className="flex Taskbar">
+        <div
+            className="flex Taskbar"
+            style={{ height: taskbarHeight }}
+        >
             <div className="left">
                 <StartMenu active={startMenu == true ? "active" : ""} />
                 <div data-testid="startButton" className="flex icon startButton" onMouseDown={() => setIfBlurByStartMenuPress(true)} onClick={handleStartMenu}>

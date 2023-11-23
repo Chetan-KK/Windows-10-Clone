@@ -4,27 +4,20 @@
   position: relative;
 } */
 
-.App {
-  display: flex;
-  flex: 1;
-  height: 100vh;
-  width: 100vw;
+body,
+html {
+  overflow: hidden;
 }
 
-.outerDiv {
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
 
-.App .mainWallpaper {
+/* .App .mainWallpaper {
   height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
   object-fit: cover;
-}
+} */
 
 .loadingScreen {
   display: flex;
