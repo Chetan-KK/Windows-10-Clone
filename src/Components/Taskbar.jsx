@@ -27,7 +27,6 @@ export default function Taskbar(props) {
                     runningApp.running == true && <Icon key={runningApp.name} appName={runningApp.name} appIcon={runningApp.icon} activeStatus={runningApp.active} />
                 ))
                 }
-
             </div>
             <div className="flex right">
                 <div className="icon flex arrow">

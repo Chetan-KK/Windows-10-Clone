@@ -109,6 +109,7 @@ function App() {
       {showApp && (
         <div className="App">
           <img className='mainWallpaper' src="defaultWallpaper.jpg" alt="windowsBackGroundImage" />
+          <div><h1>Hello worldasdasasasdasasd</h1></div>
           <Taskbar totalApps={totalApps} />
 
         </div>
