@@ -1,9 +1,12 @@
 import React, { useContext, useState, useRef, useEffect } from 'react'
 import { AppContext } from '../../context/AppContext'
 import "../css/MainApp.css"
-import Taskbar from '../Taskbar'
-import wordIcon from "../../assets/wordIcon.png";
-import excelIcon from "../../assets/excelIcon.png";
+import Taskbar from '../Taskbar';
+// import wordIcon from "../../assets/wordIcon.png";
+// import excelIcon from "../../assets/excelIcon.png";
+
+// const wordIcon = require("../../assets/wordIcon.png")
+// const excelIcon = require("../../assets/excelIcon.png")
 
 //widths and heights of viewpport
 const Width = window.innerWidth
@@ -467,12 +470,12 @@ function MainApp() {
                                         <p style={{ marginLeft: "2%" }}>Text Document</p></div>
 
                                     <div style={{ display: "flex", alignItems: "center" }}>
-                                        <img src={wordIcon} alt="microsoft word icon" style={{ width: "8%", height: "8%" }} />
+                                        <img src="wordIcon.png" alt="microsoft word icon" style={{ width: "8%", height: "8%" }} />
                                         <p style={{ marginLeft: "2%" }}>Microsoft Word Document</p>
                                     </div>
 
                                     <div style={{ display: "flex", alignItems: "center" }}>
-                                        <img src={excelIcon} alt="microsoft excel icon" style={{ width: "8%", height: "8%" }} />
+                                        <img src="excelIcon.png" alt="microsoft excel icon" style={{ width: "8%", height: "8%" }} />
                                         <p style={{ marginLeft: "2%" }}>Microsoft Excel Spreadsheet</p>
                                     </div>
                                 </div>
