@@ -2,6 +2,8 @@ import React, { useContext, useState, useRef, useEffect } from 'react'
 import { AppContext } from '../../context/AppContext'
 import "../css/MainApp.css"
 import Taskbar from '../Taskbar'
+import wordIcon from "../../assets/wordIcon.png";
+import excelIcon from "../../assets/excelIcon.png";
 
 //widths and heights of viewpport
 const Width = window.innerWidth
@@ -200,15 +202,76 @@ function MainApp() {
                                     className='subMenuDiv'
                                     style={{
                                         width: menuWidth,
-                                        left: subMenuBeOnRight ? null : "-110%",
-                                        right: subMenuBeOnRight ? "-110%" : 0,
+                                        left: subMenuBeOnRight ? null : "-103%",
+                                        right: subMenuBeOnRight ? "-103%" : 0,
+                                        top: "1%"
                                     }}
                                 >
-                                    <div style={{ marginLeft: "-12%" }}><p>Large Icons</p></div>
-                                    <div style={{ marginLeft: "-12%" }}><p>Medium Icons</p></div>
-                                    <div style={{ marginLeft: "-12%" }}><p>Small Icons</p></div>
-                                    <div style={{ marginLeft: "-12%" }}><p>List</p></div>
-                                    <div style={{ marginLeft: "-12%" }}><p>Details</p></div>
+                                    <div style={{ display: "flex", alignItems: "center" }}>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            strokeWidth={1.5}
+                                            stroke="currentColor"
+                                            style={{ width: "10%", height: "10%" }}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+                                        </svg>
+
+                                        <p style={{ marginLeft: "2% " }}>Large Icons</p>
+                                    </div>
+
+                                    <div style={{ display: "flex", alignItems: "center" }}>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            strokeWidth={1.5}
+                                            stroke="currentColor"
+                                            style={{ width: "8%", height: "8%" }}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+                                        </svg>
+                                        <p style={{ marginLeft: "2% " }}>Medium Icons</p>
+                                    </div>
+                                    <div style={{ display: "flex", alignItems: "center" }}>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            strokeWidth={1.5}
+                                            stroke="currentColor"
+                                            style={{ width: "6%", height: "6%" }}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+                                        </svg>
+                                        <p style={{ marginLeft: "2% " }}>Small Icons</p>
+                                    </div>
+                                    <div style={{ display: "flex", alignItems: "center" }}>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            strokeWidth={1.5}
+                                            stroke="currentColor"
+                                            style={{ width: "8%", height: "8%" }}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                                        </svg>
+
+                                        <p style={{ marginLeft: "2% " }}>List</p>
+                                    </div>
+                                    <div style={{ display: "flex", alignItems: "center" }}>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            strokeWidth={1.5}
+                                            stroke="currentColor"
+                                            style={{ width: "8%", height: "8%" }}
+                                        >
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0112 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M12 10.875v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125M13.125 12h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125M20.625 12c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5M12 14.625v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 14.625c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m0 1.5v-1.5m0 0c0-.621.504-1.125 1.125-1.125m0 0h7.5" />
+                                        </svg>
+
+                                        <p style={{ marginLeft: "2% " }}>Details</p>
+                                    </div>
                                 </div>
                             )}
 
@@ -221,16 +284,7 @@ function MainApp() {
                             onMouseOver={handleSortBySubMenu}
                             onMouseOut={hideSortBySubMenu}
                         >
-                            <div
-                                style={{
-                                    marginLeft: "0%",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "flex-start",
-                                    padding: 0,
-                                    width: "60%"
-                                }}
-                            >
+                            <div className='menuDivWithASubMenu'>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -241,19 +295,10 @@ function MainApp() {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
                                 </svg>
 
-                                <div style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    paddingLeft: 10
-                                }}>
+                                <div>
                                     <p>Sort By</p>
                                 </div>
                             </div>
-
-
-
-
 
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -270,14 +315,15 @@ function MainApp() {
                                     className='subMenuDiv'
                                     style={{
                                         width: menuWidth,
-                                        left: subMenuBeOnRight ? null : "-115%",
-                                        right: subMenuBeOnRight ? "-115%" : 0,
+                                        left: subMenuBeOnRight ? null : "-103%",
+                                        right: subMenuBeOnRight ? "-103%" : 0,
+                                        top: "1%"
                                     }}
                                 >
-                                    <div style={{ marginLeft: "-12%" }}><p>Name</p></div>
-                                    <div style={{ marginLeft: "-12%" }}><p>Size</p></div>
-                                    <div style={{ marginLeft: "-12%" }}><p>Item Type</p></div>
-                                    <div style={{ marginLeft: "-12%" }}><p>Date Modified</p></div>
+                                    <div style={{ paddingLeft: "2%" }}><p>Name</p></div>
+                                    <div style={{ paddingLeft: "2%" }}><p>Size</p></div>
+                                    <div style={{ paddingLeft: "2%" }}><p>Item Type</p></div>
+                                    <div style={{ paddingLeft: "2%" }}><p>Date Modified</p></div>
                                 </div>
                             )}
 
@@ -309,18 +355,8 @@ function MainApp() {
                         <div className='menuSeparator'></div>
 
                         {/* Paste */}
-                        <div style={{
-                            display: "flex",
-                            justifyContent: "flex-start",
-                            alignItems: "center"
-                        }}
-                        >
-                            <div style={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "flex-start",
-                                width: "18%"
-                            }}>
+                        <div className='menuDivWithNoSubMenu'>
+                            <div className='divWithIconInMenuDivWithNoSubMenu'>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -338,18 +374,8 @@ function MainApp() {
 
 
                         {/* personalize */}
-                        <div style={{
-                            display: "flex",
-                            justifyContent: "flex-start",
-                            alignItems: "center"
-                        }}
-                        >
-                            <div style={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "flex-start",
-                                width: "18%"
-                            }}>
+                        <div className="menuDivWithNoSubMenu">
+                            <div className='divWithIconInMenuDivWithNoSubMenu'>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none" viewBox="0 0 24 24"
@@ -389,36 +415,82 @@ function MainApp() {
                                     className='subMenuDiv'
                                     style={{
                                         width: menuWidth,
-                                        left: subMenuBeOnRight ? null : "-115%",
-                                        right: subMenuBeOnRight ? "-115%" : 0,
-                                        top: newSubMenuBeOnTop ? "-500%" : null
+                                        left: subMenuBeOnRight ? null : "-103%",
+                                        right: subMenuBeOnRight ? "-103%" : 0,
+                                        top: newSubMenuBeOnTop ? "-500%" : "1%"
                                     }}
                                     ref={newSubMenuRef}
                                 >
-                                    <div style={{ marginLeft: "-12%" }}><p>Folder</p></div>
-                                    <div style={{ marginLeft: "-12%" }}><p>Shortcut</p></div>
-                                    <div style={{ marginLeft: "-12%" }}><p>Bitmap Image</p></div>
-                                    <div style={{ marginLeft: "-12%" }}><p>Text Document</p></div>
-                                    <div style={{ marginLeft: "-12%" }}><p>Microsoft Word Document</p></div>
-                                    <div style={{ marginLeft: "-12%" }}><p>Microsoft Excel Spreadsheet</p></div>
+                                    <div style={{ display: "flex", alignItems: "center" }}>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            strokeWidth={1.5}
+                                            stroke="currentColor"
+                                            style={{ width: "8%", height: "8%" }}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776" />
+                                        </svg>
+
+                                        <p style={{ marginLeft: "2%" }}>Folder</p>
+                                    </div>
+                                    <div style={{ display: "flex", alignItems: "center" }}>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            strokeWidth={1.5}
+                                            stroke="currentColor"
+                                            style={{ width: "8%", height: "8%" }}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                                        </svg>
+
+                                        <p style={{ marginLeft: "2%" }}>Shortcut</p>
+                                    </div>
+                                    <div style={{ display: "flex", alignItems: "center" }}>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            strokeWidth={1.5}
+                                            stroke="currentColor"
+                                            style={{ width: "8%", height: "8%" }}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
+                                        </svg>
+
+                                        <p style={{ marginLeft: "2%" }}>Bitmap Image</p>
+                                    </div>
+
+                                    <div style={{ display: "flex", alignItems: "center" }}>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            strokeWidth={1.5}
+                                            stroke="currentColor"
+                                            style={{ width: "8%", height: "8%" }}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                                        </svg>
+
+                                        <p style={{ marginLeft: "2%" }}>Text Document</p></div>
+
+                                    <div style={{ display: "flex", alignItems: "center" }}>
+                                        <img src={wordIcon} alt="microsoft word icon" style={{ width: "8%", height: "8%" }} />
+                                        <p style={{ marginLeft: "2%" }}>Microsoft Word Document</p>
+                                    </div>
+
+                                    <div style={{ display: "flex", alignItems: "center" }}>
+                                        <img src={excelIcon} alt="microsoft excel icon" style={{ width: "8%", height: "8%" }} />
+                                        <p style={{ marginLeft: "2%" }}>Microsoft Excel Spreadsheet</p>
+                                    </div>
                                 </div>
                             )}
 
                         </div>
 
                         {/* Display  */}
-                        <div style={{
-                            display: "flex",
-                            justifyContent: "flex-start",
-                            alignItems: "center"
-                        }}
-                        >
-                            <div style={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "flex-start",
-                                width: "18%"
-                            }}>
+                        <div className='menuDivWithNoSubMenu'>
+                            <div className='divWithIconInMenuDivWithNoSubMenu'>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"

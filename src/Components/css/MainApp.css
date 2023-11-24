@@ -65,7 +65,7 @@
     /* left: -115%; */
     /* top: -500%; */
     background-color: #F0F0F0;
-    width: 180px;
+    /* width: 180px; */
     border-radius: 7px;
     padding-top: 4px;
 }
@@ -75,6 +75,31 @@
 
 }
 
-/* .menuDiv .divWithSubMenu .subMenuDiv {
-    padding-left: 1px;
-  } */
+.menuDivWithASubMenu {
+    margin-left: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    width: 60%;
+}
+
+.menuDivWithASubMenu div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+}
+
+.menuDivWithNoSubMenu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.divWithIconInMenuDivWithNoSubMenu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 18%;
+}
