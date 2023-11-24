@@ -43,7 +43,8 @@
     background-color: lightgrey;
     width: 80%;
     height: 0.5px;
-    margin: auto;
+    margin: 4px auto;
+
 }
 
 .menuDiv div:last-child:hover {

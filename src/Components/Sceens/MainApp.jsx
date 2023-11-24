@@ -12,11 +12,11 @@ const Height = window.innerHeight
 function MainApp() {
     const { totalApps, taskbarHeight } = useContext(AppContext)
 
-    const [showRightClickMenu, setShowRightClickMenu] = useState(false)
+    const [showRightClickMenu, setShowRightClickMenu] = useState(true)  //setting it initially to true to get its height in useEffect below
     const [menuWidth, setMenuWidth] = useState(200)
     const [menuHeight, setMenuHeight] = useState(null)
     const [NewSubMenuHeight, setNewSubMenuHeight] = useState(null)
-    const [menuTopPosition, setMenuTopPosition] = useState(0)
+    const [menuTopPosition, setMenuTopPosition] = useState(-1000) //setting it up hidden from viewport to get its height
     const [menuLeftPostion, setMenuLeftPosition] = useState(0)
     const menuRef = useRef(null)
     const newSubMenuRef = useRef(null)
@@ -25,22 +25,26 @@ function MainApp() {
     const [subMenus, setSubMenus] = useState({
         view: false,
         SortBy: false,
-        New: false
+        New: true // to get the height of sub menu of option "new" when the app renders
     })
 
+    /**have the height of the menu and sub menu of option "new" when app renders for the first time
+     * this way it loads the menu of screen when app renders get the relevant heights and then make them
+     * disappear*/
     useEffect(() => {
-        //setting the height of the menu div
-        if (menuHeight == null && menuRef.current) {
-            setMenuHeight(menuRef.current.offsetHeight)
-        }
-    }, [showRightClickMenu, menuHeight])
+        setMenuHeight(menuRef.current.offsetHeight)
+        setNewSubMenuHeight(newSubMenuRef.current.offsetHeight)
+        hideNewSubMenu()
+        setShowRightClickMenu(false)
 
-    useEffect(() => {
-        if (NewSubMenuHeight == null && newSubMenuRef.current) {
-            setNewSubMenuHeight(newSubMenuRef.current.offsetHeight)
-            console.log("submenu of news's height is", newSubMenuRef.current.offsetHeight)
-        }
-    }, [subMenus.New, NewSubMenuHeight])
+    }, [])
+
+
+    // useEffect(() => {
+    //     if (NewSubMenuHeight == null && newSubMenuRef.current) {
+    //         setNewSubMenuHeight(newSubMenuRef.current.offsetHeight)
+    //     }
+    // }, [subMenus.New, NewSubMenuHeight])
 
     /**Start of Submenus Functions */
     function handleViewSubMenu() {
@@ -70,9 +74,10 @@ function MainApp() {
 
     function handleRightClick(e) {
         e.preventDefault()
-        console.log("right clicked")
         contextMenuInitializer(e)
         setShowRightClickMenu(true)
+        // contextMenuInitializer(e)
+
     }
 
     function handleLeftClick() {
@@ -143,7 +148,8 @@ function MainApp() {
                         style={{
                             width: menuWidth,
                             top: menuTopPosition,
-                            left: menuLeftPostion
+                            left: menuLeftPostion,
+
                         }}
                         ref={menuRef}
                     >
@@ -153,13 +159,7 @@ function MainApp() {
                             onMouseOut={hideViewSubMenu}
                         >
 
-                            <div style={{
-                                backgroundColor: "red",
-                                marginLeft: "0%",
-                                display: "flex", alignItems: "center", justifyContent: "flex-start",
-                                padding: 0,
-                                width: "60%"
-                            }}>
+                            <div className='menuDivWithASubMenu'>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -169,7 +169,6 @@ function MainApp() {
                                     style={{
                                         height: "20%",
                                         width: "20%",
-                                        backgroundColor: "green"
                                     }}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -180,7 +179,6 @@ function MainApp() {
                                         display: "flex",
                                         alignItems: "center",
                                         justifyContent: "center",
-                                        backgroundColor: "yellow",
                                         paddingLeft: 10
                                     }}>
                                     <p>View</p>
@@ -330,14 +328,8 @@ function MainApp() {
                         </div>
 
                         {/* Refresh */}
-                        <div style={{ display: "flex", justifyContent: "flex-start", backgroundColor: "red", alignItems: "center" }}>
-                            <div style={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "flex-start",
-                                backgroundColor: "purple",
-                                width: "18%"
-                            }}>
+                        <div className='menuDivWithNoSubMenu'>
+                            <div className="divWithIconInMenuDivWithNoSubMenu">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -349,7 +341,7 @@ function MainApp() {
                                 </svg>
 
                             </div>
-                            <div style={{ backgroundColor: "yellow" }}><p>Refresh</p></div>
+                            <div ><p>Refresh</p></div>
                         </div>
 
                         <div className='menuSeparator'></div>
