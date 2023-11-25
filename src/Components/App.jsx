@@ -19,7 +19,9 @@ constructor();
 
 
 function App() {
+  //used by TaskBar.jsx
   const taskbarHeight = 40
+
   const [totalApps, setTotalApps] = useState([
     {
       name: "chrome",
@@ -51,6 +53,15 @@ function App() {
   const [shutDown, setShutDown] = useState(false)
   const [powerOnScreen, setPowerOnScreen] = useState(false)
 
+  /**States used by MainApp.jsx */
+  const [subMenus, setSubMenus] = useState({
+    view: false,
+    SortBy: false,
+    New: true // to get the height of sub menu of option "new" when the app renders
+  })
+  const [showRightClickMenu, setShowRightClickMenu] = useState(true)  //setting it initially to true to get its height in useEffect below
+  /**END for MainApp.jsx*/
+
   useEffect(() => {
     initiatePowerOnSequence()
   }, [])
@@ -72,6 +83,18 @@ function App() {
 
   function handleStartMenu() {
     changeStartMenuStatus()
+
+    //closing the context menu if it was open
+    if (showRightClickMenu) {
+      setShowRightClickMenu(false)
+      setSubMenus(prev => ({
+        view: false,
+        SortBy: false,
+        New: false
+      })
+      )
+    }
+
   }
 
 
@@ -101,7 +124,11 @@ function App() {
       setPowerOnScreen,
       initiatePowerOnSequence,
       totalApps,
-      taskbarHeight
+      taskbarHeight,
+      subMenus,
+      setSubMenus,
+      showRightClickMenu,
+      setShowRightClickMenu
     }}
     >
       {showLoadingScreen && (

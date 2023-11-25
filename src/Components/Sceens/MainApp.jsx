@@ -15,7 +15,7 @@ const Height = window.innerHeight
 function MainApp() {
     const { totalApps, taskbarHeight } = useContext(AppContext)
 
-    const [showRightClickMenu, setShowRightClickMenu] = useState(true)  //setting it initially to true to get its height in useEffect below
+    // const [showRightClickMenu, setShowRightClickMenu] = useState(true)  //setting it initially to true to get its height in useEffect below
     const [menuWidth, setMenuWidth] = useState(200)
     const [menuHeight, setMenuHeight] = useState(null)
     const [NewSubMenuHeight, setNewSubMenuHeight] = useState(null)
@@ -25,11 +25,14 @@ function MainApp() {
     const newSubMenuRef = useRef(null)
     const [subMenuBeOnRight, setSubMenuBeOnRight] = useState(true)
     const [newSubMenuBeOnTop, setNewSubMenuBeOnTop] = useState(false)
-    const [subMenus, setSubMenus] = useState({
-        view: false,
-        SortBy: false,
-        New: true // to get the height of sub menu of option "new" when the app renders
-    })
+
+    const { subMenus, setSubMenus, showRightClickMenu, setShowRightClickMenu } = useContext(AppContext)
+
+    // const [subMenus, setSubMenus] = useState({
+    //     view: false,
+    //     SortBy: false,
+    //     New: true // to get the height of sub menu of option "new" when the app renders
+    // })
 
     /**have the height of the menu and sub menu of option "new" when app renders for the first time
      * this way it loads the menu of screen when app renders get the relevant heights and then make them
