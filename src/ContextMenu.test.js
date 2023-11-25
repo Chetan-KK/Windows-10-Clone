@@ -77,4 +77,27 @@ describe("right clcik functionality tests", () => {
             expect(menuOptionView).not.toBeInTheDocument()
         })
     })
+
+    test("context menu closes when the start menu is clicked", () => {
+        const user = userEvent.setup()
+        render(<App />)
+
+        waitFor(async () => {
+            expect(screen.getByAltText("windowsBackGroundImage")).toBeInTheDocument()
+            const mainScreen = screen.getByAltText("clickableScreen")
+            const startButton = screen.getByTestId("startButton")
+
+            // expect(screen.getByText(/view/i)).toBeVisible()
+            await user.contextMenu(mainScreen)
+            const viewDiv = screen.getByText(/view/i)
+            expect(viewDiv).toBeInTheDocument()
+
+            //click the start button
+            await user.click(startButton)
+            expect(screen.getByText(/vs code/i)).toBeInTheDocument()
+
+            //the context menu should disappear
+            expect(screen.getByText(/view/i)).not.toBeInTheDocument()
+        }, { timeout: 3500 })
+    })
 })

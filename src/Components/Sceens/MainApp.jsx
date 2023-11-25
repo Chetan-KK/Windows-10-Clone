@@ -135,6 +135,7 @@ function MainApp() {
     return (
         <div className="App">
             <div
+                data-testid="clickableScreen"
                 className='outerDiv'
                 onContextMenu={handleRightClick}
                 onClick={handleLeftClick}
