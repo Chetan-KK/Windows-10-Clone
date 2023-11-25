@@ -2,11 +2,6 @@ import React, { useContext, useState, useRef, useEffect } from 'react'
 import { AppContext } from '../../context/AppContext'
 import "../css/MainApp.css"
 import Taskbar from '../Taskbar';
-// import wordIcon from "../../assets/wordIcon.png";
-// import excelIcon from "../../assets/excelIcon.png";
-
-// const wordIcon = require("../../assets/wordIcon.png")
-// const excelIcon = require("../../assets/excelIcon.png")
 
 //widths and heights of viewpport
 const Width = window.innerWidth
@@ -15,7 +10,6 @@ const Height = window.innerHeight
 function MainApp() {
     const { totalApps, taskbarHeight } = useContext(AppContext)
 
-    // const [showRightClickMenu, setShowRightClickMenu] = useState(true)  //setting it initially to true to get its height in useEffect below
     const [menuWidth, setMenuWidth] = useState(200)
     const [menuHeight, setMenuHeight] = useState(null)
     const [NewSubMenuHeight, setNewSubMenuHeight] = useState(null)
@@ -28,29 +22,20 @@ function MainApp() {
 
     const { subMenus, setSubMenus, showRightClickMenu, setShowRightClickMenu } = useContext(AppContext)
 
-    // const [subMenus, setSubMenus] = useState({
-    //     view: false,
-    //     SortBy: false,
-    //     New: true // to get the height of sub menu of option "new" when the app renders
-    // })
 
     /**have the height of the menu and sub menu of option "new" when app renders for the first time
      * this way it loads the menu of screen when app renders get the relevant heights and then make them
      * disappear*/
     useEffect(() => {
-        setMenuHeight(menuRef.current.offsetHeight)
-        setNewSubMenuHeight(newSubMenuRef.current.offsetHeight)
-        hideNewSubMenu()
-        setShowRightClickMenu(false)
+        if (menuHeight === null && NewSubMenuHeight == null) {
+            setMenuHeight(menuRef.current.offsetHeight)
+            setNewSubMenuHeight(newSubMenuRef.current.offsetHeight)
+            hideNewSubMenu()
+            setShowRightClickMenu(false)
+        }
+
 
     }, [])
-
-
-    // useEffect(() => {
-    //     if (NewSubMenuHeight == null && newSubMenuRef.current) {
-    //         setNewSubMenuHeight(newSubMenuRef.current.offsetHeight)
-    //     }
-    // }, [subMenus.New, NewSubMenuHeight])
 
     /**Start of Submenus Functions */
     function handleViewSubMenu() {
@@ -106,7 +91,7 @@ function MainApp() {
         setNewSubMenuBeOnTop(false)
 
         let y = e.clientY + 2 //just moved a bit to avoid hover effect
-        let x = e.clientX
+        let x = e.clientX + 2
 
         //checks if menuDiv goes beyond right of the screen and adjust x
         if (x + menuWidth > Width) {

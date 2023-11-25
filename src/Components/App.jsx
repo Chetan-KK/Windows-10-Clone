@@ -125,10 +125,11 @@ function App() {
       initiatePowerOnSequence,
       totalApps,
       taskbarHeight,
-      subMenus,
-      setSubMenus,
-      showRightClickMenu,
-      setShowRightClickMenu
+      subMenus,                   //used in MainApp.jsx
+      setSubMenus,                //used in MainApp, RestarScreen
+      showRightClickMenu,         //used in MainApp.jsx
+      setShowRightClickMenu,      //used in MainApp, RestartScreen,
+
     }}
     >
       {showLoadingScreen && (

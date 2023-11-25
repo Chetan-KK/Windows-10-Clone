@@ -6,7 +6,7 @@ import "../css/sleep.css"
 
 function SleepScreen() {
     const [flagForDelay, setFlagForDelay] = useState(false)
-    const { setShowApp, setShowSleepScreen } = useContext(AppContext)
+    const { setShowRightClickMenu, setSubMenus, setShowApp, setShowSleepScreen } = useContext(AppContext)
 
     useEffect(() => {
         setTimeout(() => {
@@ -19,6 +19,10 @@ function SleepScreen() {
     }, [])
 
     function handleMouseOrKeyboardAction() {
+        //to set the context menu div off the screen so that MainApp.jsx could get their heights
+        setShowRightClickMenu(true)
+        setSubMenus(prev => ({ ...prev, New: true }))
+
         setShowApp(true)
         setShowSleepScreen(false)
     }
