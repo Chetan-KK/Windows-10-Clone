@@ -1,0 +1,106 @@
+.App {
+    display: flex;
+    flex: 1;
+    height: 100vh;
+    width: 100vw;
+}
+
+.outerDiv {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.menuDiv {
+    position: fixed;
+    /* top: 0; */
+    /* right: 50vw; */
+    /* width: 180px; */
+    background-color: #F0F0F0;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+.menuDiv div {
+    padding-top: 0.5px;
+    padding-bottom: 0.5px;
+    /* padding-left: 12%; */
+    padding-left: 1%;
+}
+
+.menuDiv div:hover {
+    background-color: #3399FF;
+
+}
+
+.menuDiv div:first-child:hover {
+    background-color: #3399FF;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+
+.menuSeparator {
+    background-color: lightgrey;
+    width: 80%;
+    height: 0.5px;
+    margin: 4px auto;
+
+}
+
+.menuDiv div:last-child:hover {
+    background-color: #3399FF;
+    border-bottom-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.divWithSubMenu {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+}
+
+.subMenuDiv {
+    position: absolute;
+    /* right: -115%; */
+    /* left: -115%; */
+    /* top: -500%; */
+    background-color: #F0F0F0;
+    /* width: 180px; */
+    border-radius: 7px;
+    padding-top: 4px;
+}
+
+.menuDiv .divWithSubMenu .subMenuDiv:hover {
+    background-color: #F0F0F0;
+
+}
+
+.menuDivWithASubMenu {
+    margin-left: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    width: 60%;
+}
+
+.menuDivWithASubMenu div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+}
+
+.menuDivWithNoSubMenu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.divWithIconInMenuDivWithNoSubMenu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 18%;
+}

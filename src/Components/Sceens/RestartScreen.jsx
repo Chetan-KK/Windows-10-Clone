@@ -5,7 +5,7 @@ import "../css/Restart.css"
 
 function RestartScreen() {
     const [simulatePowerOff, setSimulatePowerOff] = useState(false)
-    const { setShowApp, setShowRestartingScreen, setShowLoadingScreen } = useContext(AppContext)
+    const { setShowRightClickMenu, setSubMenus, setShowApp, setShowRestartingScreen, setShowLoadingScreen } = useContext(AppContext)
 
     useEffect(() => {
         setTimeout(() => {
@@ -17,6 +17,10 @@ function RestartScreen() {
 
                 setTimeout(() => {
                     setShowLoadingScreen(false)
+                    //to set the context menu div off the screen so that MainApp.jsx could get their heights
+                    setShowRightClickMenu(true)
+                    setSubMenus(prev => ({ ...prev, New: true }))
+
                     setShowApp(true)
                 }, 2500)
 

@@ -7,6 +7,7 @@ import SleepScreen from './Sceens/SleepScreen';
 import RestartScreen from './Sceens/RestartScreen';
 import ShutDown from './Sceens/ShutDown';
 import PowerOnScreen from './Sceens/PowerOnScreen';
+import MainApp from './Sceens/MainApp';
 
 // import defaultWallpaper from './assets/default-wallpaper.jpg'
 
@@ -18,6 +19,8 @@ constructor();
 
 
 function App() {
+  //used by TaskBar.jsx
+  const taskbarHeight = 40
 
   const [totalApps, setTotalApps] = useState([
     {
@@ -50,6 +53,15 @@ function App() {
   const [shutDown, setShutDown] = useState(false)
   const [powerOnScreen, setPowerOnScreen] = useState(false)
 
+  /**States used by MainApp.jsx */
+  const [subMenus, setSubMenus] = useState({
+    view: false,
+    SortBy: false,
+    New: true // to get the height of sub menu of option "new" when the app renders
+  })
+  const [showRightClickMenu, setShowRightClickMenu] = useState(true)  //setting it initially to true to get its height in useEffect below
+  /**END for MainApp.jsx*/
+
   useEffect(() => {
     initiatePowerOnSequence()
   }, [])
@@ -71,6 +83,18 @@ function App() {
 
   function handleStartMenu() {
     changeStartMenuStatus()
+
+    //closing the context menu if it was open
+    if (showRightClickMenu) {
+      setShowRightClickMenu(false)
+      setSubMenus(prev => ({
+        view: false,
+        SortBy: false,
+        New: false
+      })
+      )
+    }
+
   }
 
 
@@ -99,6 +123,13 @@ function App() {
       setShutDown,
       setPowerOnScreen,
       initiatePowerOnSequence,
+      totalApps,
+      taskbarHeight,
+      subMenus,                   //used in MainApp.jsx
+      setSubMenus,                //used in MainApp, RestarScreen
+      showRightClickMenu,         //used in MainApp.jsx
+      setShowRightClickMenu,      //used in MainApp, RestartScreen,
+
     }}
     >
       {showLoadingScreen && (
@@ -107,11 +138,7 @@ function App() {
         </div>)
       }
       {showApp && (
-        <div className="App">
-          <img className='mainWallpaper' src="defaultWallpaper.jpg" alt="windowsBackGroundImage" />
-          <Taskbar totalApps={totalApps} />
-
-        </div>
+        <MainApp />
       )}
 
       {/* Sleep Screen */}

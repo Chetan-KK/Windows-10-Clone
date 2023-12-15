@@ -1,17 +1,23 @@
-.App {
+/* .App {
   height: 100vh;
   width: 100vw;
   position: relative;
+} */
+
+body,
+html {
+  overflow: hidden;
 }
 
-.App .mainWallpaper {
+
+/* .App .mainWallpaper {
   height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
   object-fit: cover;
-}
+} */
 
 .loadingScreen {
   display: flex;
