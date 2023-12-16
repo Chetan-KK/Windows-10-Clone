@@ -1,0 +1,78 @@
+.global-box{
+    /* background-color: #232425; */
+    background-color: rgb(238, 238, 238);
+    width: 17rem;
+    height: 27rem;
+    position: absolute;
+    bottom: 40px;
+    color: white;
+    right: 0;
+    padding: 10x;
+}
+
+/* .global-box.nn{
+    display: none;
+} */
+.wifiConnect{
+    background-color: #a24916;
+    padding: 10px 10px;
+
+}
+.headWifi{
+    display: flex;
+    position: relative;
+    height: 7rem;
+
+}
+.headWifi div a{
+    color: #c99679;
+}
+.headWifi div a:hover{
+    color: white;
+}
+.disConnectBtn{
+    background-color: #b56e45;
+    position: absolute;
+    color: white;
+    right: 1rem;
+    border: 0;
+    padding: 5px 25px;
+    top: 6rem;
+    cursor: pointer;
+}
+.Network{
+    position: absolute;
+    bottom: 0;
+    
+}
+.Network h5{
+    color: #a24916;
+    font-size: 14px;
+}
+.Network p{
+    font-size: 12px;
+}
+.Network .box-newtork{
+    display: flex;
+    flex-wrap: 10px;
+}
+.box-newtork div:nth-child(1){
+    background-color: #a24916;
+    color: white;
+    padding: 7px 8px;
+    width: 74px;
+    height: 68px;
+    margin: 2px;
+}
+.box-newtork div{
+    background-color: gray;
+    color: white;
+    padding: 7px 8px;
+    width: 74px;
+    height: 68px;
+    margin: 2px;
+}
+
+.box-newtork div p{
+    font-size: 10px;
+}
