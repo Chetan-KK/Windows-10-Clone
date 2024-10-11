@@ -50,7 +50,7 @@ export default function Taskbar(props) {
                         {date.getHours() + ":" + date.getMinutes()}
                     </p>
                     <p>
-                        {date.getDate() + "-" + date.getMonth() + 1 + "-" + date.getFullYear()}
+                        {date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear()}
                     </p>
                 </div>
                 <div className="icon flex notification">
