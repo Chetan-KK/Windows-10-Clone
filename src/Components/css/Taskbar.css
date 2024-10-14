@@ -66,4 +66,50 @@
 }
 .Taskbar .right .date{
     flex-direction: column;
+    padding: 5px
 }
+
+.action-center :hover{
+    cursor:default;
+}
+
+.action-center{
+    display: flex;
+}
+
+/* Taskbar.css */
+
+/* Keyframes for sliding in from the right */
+@keyframes slideIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Keyframes for sliding out to the right */
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+  
+  /* Animation for showing the calendar and notification center */
+  .slide-in {
+    animation: slideIn 0.3s forwards;
+  }
+  
+  /* Animation for hiding the calendar and notification center */
+  .slide-out {
+    animation: slideOut 0.3s forwards;
+  }
+  

@@ -1,0 +1,23 @@
+.notification-center {
+    position: absolute;
+    right: 10px;
+    bottom: 50px;
+    width: 350px;
+    height: 250px;
+    background-color: #2b2b2b;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+.notification-center p{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 25%;
+  font-size: small;
+  font-weight: 100;
+}
+
+  
