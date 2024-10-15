@@ -59,17 +59,23 @@ export default function StartMenu(props) {
         if (!ifBlurByStartMenuPress) {
             if (isStartButtonActive) {
                 setStartMenu(prev => !prev)
-
+                setSettingsMenu(false)
+                setQuitMenu(false)
             }
         }
         //close the power tab if it was opened
         setQuitMenu(false)
     }
 
+    function handleMouseLeave() {
+        setQuitMenu(false);
+        setSettingsMenu(false);
+    }
+
     return (
 
         <div data-testid="startMenuDiv" ref={startMenuDiv} onBlur={handleBlur} tabIndex="0" className={"StartMenu StartMenu" + props.active}>
-            <div className="flex options">
+            <div className="flex options"  onMouseLeave={handleMouseLeave}>
                 <div className="opt"><i className="fa fa-bars"></i><span><b>Start</b></span></div>
                 <div className="bottom">
 
