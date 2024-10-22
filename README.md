@@ -42,9 +42,9 @@ A fun practice project to clone the Windows 10 interface using React.js.
 
 ## Tech stack
 
-- React.js
-- CSS
-- Javascript
+- [React.js](https://react.dev/)
+- [CSS](https://www.w3schools.com/Css/)
+- [Javascript](https://www.javatpoint.com/javascript-tutorial)
 
 ## Future Addons
 
