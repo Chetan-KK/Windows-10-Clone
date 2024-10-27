@@ -9,7 +9,8 @@
   width: 100%;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 0px;
+  background-position: center; 
   object-fit: cover;
 }
 
@@ -21,4 +22,56 @@
   height: 100vh;
   justify-content: center;
   background-color: black;
+}
+
+
+
+/* Extra small devices (phones, 600px and below) */
+@media only screen and (max-width: 768px) {
+  /* Ensure the background stays centered on small screens */
+  .App .mainWallpaper {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    background-position: center; 
+  object-position:-500px;
+  object-fit: cover;
+  }
+
+
+
+}
+
+
+@media only screen and (max-width: 500px) {
+
+  .App .mainWallpaper {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    background-position: center; 
+    object-position:-650px;
+    object-fit: cover;
+  }
+
+ 
+}
+@media only screen and (max-width: 400px) {
+
+  .App .mainWallpaper {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: center; 
+    object-position:-750px;
+    object-fit: cover;
+  }
+
+ 
 }
